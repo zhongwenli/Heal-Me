@@ -7,7 +7,7 @@
 //
 
 #import "MainMenuTableViewController.h"
-#import "ConnectionManager.h"
+#import "MainDataManager.h"
 
 @interface MainMenuTableViewController ()
 
@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[ConnectionManager sharedManager] viewController: self getProfileInformationForPatientID:@"1"];
+    [[MainDataManager sharedManager] viewController: self getProfileInformationForPatientID:@"1"];
     
 }
 

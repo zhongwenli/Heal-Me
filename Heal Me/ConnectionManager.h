@@ -11,7 +11,8 @@
 @class ConnectionManager;
 
 @protocol ConnectionManagerDelegate <NSObject>
-
+@optional
+- (void) connectionManager:(ConnectionManager *) connectionManager didReceiveProfileInformation:(NSDictionary *) patientInformation;
 @end
 
 @interface ConnectionManager : NSObject

@@ -57,10 +57,17 @@ SINGLETON(sharedManager);
                 patientDictionary = d;
             }
         }
+        
+        NSDictionary *formattedPatientDictionary;
         if (patientDictionary){
-            NSDictionary *formattedPatientDictionary = [self convertToInternalFormatForPatientDictionary:patientDictionary];
-            NSLog(@"%@",formattedPatientDictionary);
+            formattedPatientDictionary = [self convertToInternalFormatForPatientDictionary:patientDictionary];
         }
+     for (id<ConnectionManagerDelegate> delegate in self.delegates){
+         if([delegate respondsToSelector:@selector(connectionManager:didReceiveProfileInformation:)]){
+             [delegate connectionManager:self didReceiveProfileInformation:formattedPatientDictionary];
+         }
+     }
+        
     }];
 }
 
