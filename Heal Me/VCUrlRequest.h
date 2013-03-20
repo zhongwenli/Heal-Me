@@ -13,7 +13,7 @@
 @interface VCUrlRequest : NSObject <NSURLConnectionDelegate>
 
 @property (nonatomic, weak) NSString *url;
-@property (nonatomic, weak) void (^completion)(BOOL, NSData*);
+@property (nonatomic, strong) void (^completion)(BOOL, NSData*);
 @property (nonatomic, strong) NSMutableData *result;
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) MBProgressHUD *HUD;
