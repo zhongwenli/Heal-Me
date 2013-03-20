@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[ConnectionManager sharedManager] getProfileInformationForPatientID:@"1"];
+    [[ConnectionManager sharedManager] viewController: self getProfileInformationForPatientID:@"1"];
     
 }
 

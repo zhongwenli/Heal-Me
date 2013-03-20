@@ -25,6 +25,7 @@
         
         self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         [self.connection start];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
         
         if (view)  {
             self.HUD = [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -52,6 +53,7 @@
         
         self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         [self.connection start];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
         
         if (view)  {
             self.HUD = [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -68,6 +70,7 @@
     [self.connection cancel];
     self.connection=nil;
     [self.HUD hide:YES];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -78,6 +81,7 @@
     self.completion(YES, self.result);
     self.connection=nil;
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
 	[self.HUD hide:YES afterDelay:0.5f];
 }
 
@@ -85,6 +89,7 @@
     NSLog(@"Error: %@", error);
     self.completion(NO, nil);
     self.connection = nil;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
     
     [self.HUD hide:YES];
 }

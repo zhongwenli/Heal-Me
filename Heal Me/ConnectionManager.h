@@ -21,6 +21,6 @@
 - (void)addDelegate:(id<ConnectionManagerDelegate>)delegate;
 - (void)removeDelegate:(id<ConnectionManagerDelegate>)delegate;
 
-- (void)getProfileInformationForPatientID:(NSString *)patientID;
+- (void)viewController:(UIViewController *)vc getProfileInformationForPatientID:(NSString *)patientID;
 
 @end

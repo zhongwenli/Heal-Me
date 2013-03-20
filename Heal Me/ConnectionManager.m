@@ -35,9 +35,12 @@ SINGLETON(sharedManager);
     [self.delegates removeObject:delegate];
 }
 
-- (void)getProfileInformationForPatientID:(NSString *)patientID {
+- (void)viewController:(UIViewController *)vc getProfileInformationForPatientID:(NSString *)patientID {
     NSString *urlString = [GET_PATIENT_INFO_URL stringByAppendingFormat:@"?patient_id=%@", patientID];
-    NSLog(@"getProfileInformationForPatientID URL: %@", urlString);
+    //NSLog(@"getProfileInformationForPatientID URL: %@", urlString);
+    [VCUrlRequest requestWithURL:urlString showHUDInView:vc.view withLabel:nil doUponCompletion:^(BOOL finished, NSData *data){
+        
+    }];
     
 }
 
