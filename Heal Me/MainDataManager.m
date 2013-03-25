@@ -45,6 +45,11 @@ SINGLETON(sharedManager);
 #pragma mark ConnectionManagerDelegate
 
 - (void) connectionManager:(ConnectionManager *) connectionManager didReceiveProfileInformation:(NSDictionary *) patientInformation{
-    NSLog(@"%@",patientInformation);
+    if (patientInformation) {
+        //TO-DO: Update Cached Profile Information
+    }else{
+        //TODO: Get data from cache.
+        //TODO: Class Diagram and Data Structure for Heal Me
+    }
 }
 @end

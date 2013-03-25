@@ -51,17 +51,18 @@ SINGLETON(sharedManager);
     [VCUrlRequest requestWithURL:urlString showHUDInView:vc.view withLabel:@"Updating" doUponCompletion:^(BOOL finished, NSData *data){
         NSDictionary *dataDictionary = (NSDictionary *)[data objectFromJSONData];
         NSArray *patientArray = [dataDictionary objectForKey:@"patient"];
-        NSDictionary *patientDictionary;
+        NSDictionary *patientDictionary=nil;
         for (id d in patientArray){
             if ([d isKindOfClass:[NSDictionary class]]) {
                 patientDictionary = d;
             }
         }
         
-        NSDictionary *formattedPatientDictionary;
+        NSDictionary *formattedPatientDictionary=nil;
         if (patientDictionary){
             formattedPatientDictionary = [self convertToInternalFormatForPatientDictionary:patientDictionary];
         }
+        NSLog(@"%@",formattedPatientDictionary);
      for (id<ConnectionManagerDelegate> delegate in self.delegates){
          if([delegate respondsToSelector:@selector(connectionManager:didReceiveProfileInformation:)]){
              [delegate connectionManager:self didReceiveProfileInformation:formattedPatientDictionary];
