@@ -1,0 +1,16 @@
+/**
+ * Test.m
+ * AUTH: TJIONGAN, Christopher
+ */
+
+#import <Test.h>
+
+@implementation Test
+
+@synthesize type;
+@synthesize result;
+
+@synthesize isSelf;
+@synthesize testID;
+
+@end

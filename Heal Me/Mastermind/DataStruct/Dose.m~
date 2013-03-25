@@ -1,0 +1,17 @@
+/**
+ * Dose.m
+ * AUTH: TJIONGAN, Christopher
+ */
+
+#import <Dose.h>
+
+@implementation Dose
+
+@synthesize dose;
+@synthesize remaining;
+
+@synthesize form;
+@synthesize instruction;
+@synthesize remark;
+
+@end
